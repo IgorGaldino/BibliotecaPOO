@@ -5,14 +5,15 @@ import java.util.List;
 
 public class Biblioteca {
 
-	List<Livro> livros = new ArrayList<>();
-	List<Artigo> artigos = new ArrayList<>();;
-	List<Emprestimo> emprestimos = new ArrayList<>();;
+	private List<Livro> livros = new ArrayList<>();
+	private List<Artigo> artigos = new ArrayList<>();;
+	private List<Emprestimo> emprestimos = new ArrayList<>();;
 
 	public List<Emprestimo> getEmprestimos() {
 		return emprestimos;
 	}
 	public void setEmprestimo(Emprestimo emprestimo) {
+		System.out.println("Emprestimo: " + emprestimos);
 		this.emprestimos.add(emprestimo);
 	}
 	

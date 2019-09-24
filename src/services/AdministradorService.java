@@ -9,8 +9,9 @@ public class AdministradorService {
 
     public static Biblioteca menu(Biblioteca library) {
         int op = 0;
-        Scanner in = new Scanner(System.in);
+        
         do {
+            Scanner in = new Scanner(System.in);
             System.out.println
             (
                 "\t***Administrador***\n"
@@ -39,7 +40,6 @@ public class AdministradorService {
 			}
         } while(op != 0);
         
-        in.close();
         return library;
 
     }
@@ -52,13 +52,14 @@ public class AdministradorService {
         System.out.println("Informe o numero: ");
         int numero = in.nextInt(); in.nextLine();
         System.out.println("Informe o autor: ");
-        String autor = in.next();
+        String autor = in.nextLine();
         System.out.println("Informe o gênero: ");
-        String genero = in.next();
+        String genero = in.nextLine();
+        // in.nextLine();
         //int id = (library != null) ? library.getLivros().size()+1 : 1;
         Livro livro = new Livro(1, nome, numero, autor, genero, true);
         library.setLivro(livro);
-        in.close();
+        // in.close();
         return library;
     }
 

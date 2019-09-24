@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Emprestimo {
 	
-	int prazo;		//prazo em semanas
-	Usuario usuario;
-	List<Livro> livros;
-	List<Artigo> artigos;
+	private int prazo;		//prazo em semanas
+	private Usuario usuario;
+	private List<Livro> livros;
+	private List<Artigo> artigos;
 
 	public Emprestimo (int prazo, Usuario usuario, List<Livro> livros, List<Artigo> artigos) {
 		this.prazo = prazo;

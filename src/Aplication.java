@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-import model.Biblioteca;
-import model.Emprestimo;
+import model.*;
 import services.*;
 
 public class Aplication {
@@ -19,7 +18,7 @@ public class Aplication {
 					library = EmprestimoService.efetuarEmprestimo(in, library);
 					break;
 				case 2:
-					
+					show(library);
 					break;
 				case 3:
 					library = AdministradorService.menu(library);
@@ -54,10 +53,10 @@ public class Aplication {
 	public static void show(Biblioteca library) {
 		System.out.println(
 			"Show:\n"
-			+ "Emprestimos"
+			+ "Livros " + library.getLivros()
 		);
-		for(Emprestimo emp : library.getEmprestimos()) {
-			System.out.println("Emp: " + emp.getUsuario());
+		for(Livro livro : library.getLivros()) {
+			System.out.println("Emp: " + livro.getNome());
 		}
 	}
 }

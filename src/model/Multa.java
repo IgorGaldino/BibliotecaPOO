@@ -2,8 +2,8 @@ package model;
 
 public class Multa {
 	
-	float taxa;
-	Usuario usuario;
+	private float taxa;
+	private Usuario usuario;
 	
 	public float getTaxa() {
 		return taxa;
