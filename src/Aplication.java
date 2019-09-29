@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-import model.Biblioteca;
-import model.Emprestimo;
+import model.*;
 import services.*;
 
 public class Aplication {
@@ -16,27 +15,28 @@ public class Aplication {
 			op = in.nextInt();
 			switch (op) {
 				case 1:
-					library = EmprestimoService.efetuarEmprestimo(in, library);
+					library = EmprestimoService.efetuarEmprestimo(library);
 					break;
 				case 2:
-					
+					library = EmprestimoService.devolucao(library);
 					break;
 				case 3:
 					library = AdministradorService.menu(library);
 					break;
 				case 0:
-					System.out.println("EXIT\n");
+					System.out.println("\n\tEXIT\n");
 					break;
 
 				default:
-					System.out.println("Operação inválida!!!\n");
+					System.out.println("########################");
+					System.out.println("##Operação inválida!!!##");
+					System.out.println("########################");
 					break;
 			}
 
 
 		} while(op != 0);
 
-		show(library);
 		in.close();
 	}
 
@@ -54,10 +54,10 @@ public class Aplication {
 	public static void show(Biblioteca library) {
 		System.out.println(
 			"Show:\n"
-			+ "Emprestimos"
+			+ "Livros"
 		);
-		for(Emprestimo emp : library.getEmprestimos()) {
-			System.out.println("Emp: " + emp.getUsuario());
+		for(Livro book : library.getLivros()) {
+			System.out.println("Book: " + book.getNome());
 		}
 	}
 }

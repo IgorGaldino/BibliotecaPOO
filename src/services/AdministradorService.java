@@ -2,8 +2,7 @@ package services;
 
 import java.util.Scanner;
 
-import model.Biblioteca;
-import model.Livro;
+import model.*;
 
 public class AdministradorService {
 
@@ -15,8 +14,7 @@ public class AdministradorService {
             (
                 "\t***Administrador***\n"
                 + "1-Cadastrar livro\n"
-                + "2-Cadastrar artigo\n"
-                + "3-Gerar relatório de emprestimos\n"
+                + "2-Gerar relatório de emprestimos\n"
                 + "0-Sair\n"
             );
             op = in.nextInt();
@@ -25,21 +23,19 @@ public class AdministradorService {
                     library = cadastrarLivro(library);
 					break;
 				case 2:
-					
-					break;
-				case 3:
-					
+					showEmprestimos(library);
 					break;
 				case 0:
 					break;
 
-				default:
-					System.out.println("Operação inválida!!!\n");
-					break;
+                default:
+                    System.out.println("########################");
+					System.out.println("##Operação inválida!!!##");
+                    System.out.println("########################");
+                    break;
 			}
         } while(op != 0);
         
-        in.close();
         return library;
 
     }
@@ -52,18 +48,30 @@ public class AdministradorService {
         System.out.println("Informe o numero: ");
         int numero = in.nextInt(); in.nextLine();
         System.out.println("Informe o autor: ");
-        String autor = in.next();
+        String autor = in.nextLine();
         System.out.println("Informe o gênero: ");
-        String genero = in.next();
-        //int id = (library != null) ? library.getLivros().size()+1 : 1;
-        Livro livro = new Livro(1, nome, numero, autor, genero, true);
+        String genero = in.nextLine();
+        int id = (library != null) ? library.getLivros().size()+1 : 1;
+        Livro livro = new Livro(id, nome, numero, autor, genero, true);
         library.setLivro(livro);
-        in.close();
         return library;
+    }
+
+    private static void showEmprestimos(Biblioteca libratry) {
+        if(libratry.getEmprestimos().isEmpty()) { //Verifica se a lista de empréstimos está vazia
+            System.out.println("\t*******************************");
+            System.out.println("\t**Nenhum empréstimo realizado**");
+            System.out.println("\t*******************************\n");
+            return;
+        }
+        System.out.println("\t***Lista de Emprestimos***");
+        for(Emprestimo emp : libratry.getEmprestimos()) {
+            System.out.println("Nome: " + emp.getUsuario().getNome());
+            System.out.println("Prazo: " + emp.getPrazo() + " semana(s)");
+        }
+
     }
 
     //user, String nome, String matricula, String senha, boolean assinante;
     //book, String nome, int numero, String autor, String genero;
-    //article, String titulo, String autor, int anoPublicacao;
-    
 }

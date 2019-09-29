@@ -7,13 +7,11 @@ public class Emprestimo {
 	int prazo;		//prazo em semanas
 	Usuario usuario;
 	List<Livro> livros;
-	List<Artigo> artigos;
 
-	public Emprestimo (int prazo, Usuario usuario, List<Livro> livros, List<Artigo> artigos) {
+	public Emprestimo (int prazo, Usuario usuario, List<Livro> livros) {
 		this.prazo = prazo;
 		this.usuario = usuario;
 		this.livros = livros;
-		this.artigos = artigos;
 	}
 	
 	public int getPrazo() {
@@ -34,11 +32,4 @@ public class Emprestimo {
 	public void setLivros(List<Livro> livros) {
 		this.livros = livros;
 	}
-	public List<Artigo> getArtigos() {
-		return artigos;
-	}
-	public void setArtigos(List<Artigo> artigos) {
-		this.artigos = artigos;
-	}
-
 }
