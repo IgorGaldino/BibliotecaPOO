@@ -8,8 +8,9 @@ public class AdministradorService {
 
     public static Biblioteca menu(Biblioteca library) {
         int op = 0;
-        Scanner in = new Scanner(System.in);
+        
         do {
+            Scanner in = new Scanner(System.in);
             System.out.println
             (
                 "\t***Administrador***\n"
